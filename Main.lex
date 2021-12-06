@@ -34,14 +34,14 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 {DIGITO}+ {
     if(comment == 0){
-        printf( "Valor inteiro: ,%s, ,%zu, (%d) Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),atoi( yytext ),row,col);
+        printf( "Valor inteiro: ,%s, Tamanho: %zu, (%d) Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),atoi( yytext ),row,col);
     }
     col += strlen(yytext);
 }
 
 {DIGITO}+"."{DIGITO}* {
     if(comment == 0){
-        printf( "Valor real: ,%s, ,%zu, (%g) Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),atof( yytext ),row,col );
+        printf( "Valor real: ,%s, Tamanho: %zu, (%g) Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),atof( yytext ),row,col );
     }
     col += strlen(yytext);
 }
@@ -49,7 +49,7 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 "\""({TEXTO}|.)*"\"" {
     if(comment == 0){
-        printf( "Uma String: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Uma String: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
@@ -58,49 +58,49 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 "(" {
     if(comment == 0){
-        printf( "Abertura de Parenteses: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Abertura de Parenteses: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 ")" {
     if(comment == 0){
-        printf( "Fechando Parenteses: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Fechando Parenteses: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "{" {
     if(comment == 0){
-        printf( "Abertura de chaves para listas: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Abertura de chaves para listas: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "}" {
     if(comment == 0){
-        printf( "Fechamento de chaves para listas: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Fechamento de chaves para listas: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "[" {
     if(comment == 0){
-        printf( "Abertura de colchetes para listas: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Abertura de colchetes para listas: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "]" {
     if(comment == 0){
-        printf( "Fechamento de colchetes para listas: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Fechamento de colchetes para listas: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "=="|"!=" {
     if(comment == 0){
-        printf( "Operadores comparativos: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Operadores comparativos: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
@@ -109,14 +109,14 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 "="|"/="|"%="|"+="|"-=" {
     if(comment == 0){
-        printf( "Sinais de Atribuição: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Sinais de Atribuição: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "," {
     if(comment == 0){
-        printf( "Simbolo para separar argumentos: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Simbolo para separar argumentos: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
@@ -124,14 +124,14 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 ":" {
     if(comment == 0){
-        printf( "Simbolo dar início a uma função: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Simbolo dar início a uma função: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 "+"|"-"|"*"|"/"|"%" {
     if(comment == 0){
-        printf( "Operador Lógico: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Operador Lógico: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
@@ -139,44 +139,43 @@ ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
 
 "#"({TEXTO}|.)* {
     if(comment == 0){
-        printf( "Linha de Comentario: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Linha de Comentario: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 
-
-return|True|False|print|def|break{
+return|def|true|false|print|break {
     if(comment == 0){
-        printf( "Palavra reservada: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Palavra reservada: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 for|while {
     if(comment == 0){
-        printf( "Laço de repetiçao: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Laço de repetiçao: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
-in|not in {
+in|notin {
     if(comment == 0){
-        printf( "Operador de Sequencia: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Operador de Sequencia: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 if|else|elif {
     if(comment == 0){
-        printf( "Operador condicional: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Operador condicional: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
 
 {ID} {
     if(comment == 0){
-        printf( "Um identificador: ,%s, ,%zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Um identificador: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
     col += strlen(yytext);
 }
