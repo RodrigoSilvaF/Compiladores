@@ -1,0 +1,17 @@
+
+
+
+<TOKEN_LETRA> ::=   "A" | "B" | "C" | "D" | "E" | "F" | "G"
+                  | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+                  | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+                  | "V" | "W" | "X" | "Y" | "Z" ;
+
+<TOKEN_INT> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<TOKEN_REAL> ::= <TOKEN_INT> <"."> <TOKEN_INT>,{<TOKEN_INT>}
+
+
+<TOKEN_IDENTIFICADOR> ::= <TOKEN_LETRA>, {<TOKEN_LETRA> | <TOKEN_INT> | <"_">}
+
+<TOKEN_IF> ::= <TOKEN_PAR_LEFT> <EXPRESSION> <TOKEN_PAR_RIGHT>;
+
+<TOKEN_WHILE> ::= 

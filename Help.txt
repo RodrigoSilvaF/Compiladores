@@ -1,0 +1,47 @@
+{DIGITO}+\.{DIGITO}+ 	{yylval.fval = atof(yytext); return TOKEN_REAL;}
+{DIGITO}+    			{yylval.ival = atoi(yytext); return TOKEN_INT;}
+"def"					{return TOKEN_DEF;}
+"=="					{return TOKEN_EQQ;}
+"="					    {return TOKEN_EQUAL;}
+"{"					    {return TOKEN_CHA_LEFT;}
+"}"					    {return TOKEN_CHA_RIGHT;}
+"("					    {return TOKEN_PAR_LEFT;}
+")"					    {return TOKEN_PAR_RIGHT;}
+"["					    {return TOKEN_COL_LEFT;}
+"]"					    {return TOKEN_COL_RIGHT;}
+"+"					    {return TOKEN_PLUS;}
+"-"					    {return TOKEN_MINUS;}
+"*"					    {return TOKEN_MULTIPLY;}
+"/"					    {return TOKEN_DIVIDE;}
+"int"					{return TOKEN_INTOKEN_TIPO;}
+"float"				    {return TOKEN_REAL_TIPO;}
+"bool"					{return TOKEN_BOOL_TIPO;}
+"<"					    {return TOKEN_LESS;}
+">"					    {return TOKEN_MORE;}
+";"					    {return TOKEN_END_LINE;}
+":"					    {return TOKEN_DOIS_PONTOS;}
+","                     {return TOKEN_VIRGULA;}
+"or"                    {return TOKEN_OR;}
+"and"                   {return TOKEN_AND;}
+"if"					{return TOKEN_IF;}
+"else"					{return TOKEN_ELSE;}
+"while"				    {return TOKEN_WHILE;}
+"for"					{return TOKEN_FOR;}
+"print"				    {return TOKEN_PRINT;}
+"read"					{return TOKEN_READ;}
+"string"				{return TOKEN_STRING_TIPO;}
+"append"				{return TOKEN_APPEND;}
+"return"                {return TOKEN_RETURN;}
+"TRUE"                  {yylval.ival = 1;return TOKEN_TRUE;}
+"FALSE"                 {yylval.ival = 0;return TOKEN_FALSE;}
+
+
+
+
+
+//Declaração de uma função
+<TOKEN_DEF> ::= <ID> <':'> <'('> <[PARAMETER_LIST]> <')'> <':'>
+
+<PARAMETER_LIST> ::=  <PARAMETER> <","> <PARAMETER> *
+
+<PARAMETER> ::= <IDENTIFICADOR> <WHITESPACE> | <IDENTIFICADOR> <TOKEN_EQUAL> <VALUE>
