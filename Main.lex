@@ -145,7 +145,7 @@ TEXTO    [A-Za-z0-9][A-Za-z0-9]*
 
 \t {
      if(comment == 0){
-        printf( "Tabulacao a ser analisada para verificar inicio de funcao: ,%s, ,%zu, encontrado em ( %d : %d )\n", yytext,strlen(yytext),row,col );
+        printf( "Tabulacao a ser analisada para verificar inicio de funcao");
     }
     col+=4;
 }
@@ -164,7 +164,7 @@ for|while {
     col += strlen(yytext);
 }
 
-in|notin {
+in|not {
     if(comment == 0){
         printf( "Operador de Sequencia: ,%s, Tamanho: %zu, Linha/Coluna: ( %d / %d )\n", yytext,strlen(yytext),row,col );
     }
