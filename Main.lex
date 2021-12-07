@@ -24,9 +24,8 @@ int comment=0;
 
 DIGITO   [0-9]
 ID       [A-Za-z_][_A-Za-z0-9]*
-HEX      [a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]
 TEXTO    [A-Za-z0-9][A-Za-z0-9]*
-ARQUIVO  [A-Za-z0-9]*.[A-Za-z0-9]*
+
 
 
 
