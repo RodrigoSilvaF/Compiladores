@@ -189,10 +189,6 @@ if|else|elif {
     col+=1;
 }
 
-\t {
-    col+=4;
-}
-
 [\n]+ {
     if(comment == 0){
         printf("Quebra de linha\n");
