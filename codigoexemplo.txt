@@ -1,0 +1,12 @@
+def soma:
+    a = 2
+    b = 3
+    return a+b 
+
+#Comentario
+lista = {1,2,3,4}
+
+for i in lista:
+    print(i)
+    
+
